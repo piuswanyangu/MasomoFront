@@ -40,9 +40,7 @@ const HomeComponent = () => {
                 </a>
               </li>
               <li className="nav-item">
-                <a href="#login" className="nav-link text-light">
-                  Login
-                </a>
+              <Link to="/login" className='nav-link text-light'>Login</Link>
               </li>
             </ul>
           </div>
