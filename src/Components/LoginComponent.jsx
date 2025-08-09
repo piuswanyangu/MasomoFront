@@ -1,59 +1,62 @@
-import axios from 'axios';
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import axios from "axios";
+import React, { useContext, useState } from "react";
+import { AuthContext } from "../context/AuthContext";
+import { Link, useNavigate } from "react-router-dom";
 
 const LoginComponent = () => {
-// Define the hooks to help you capture different states
-const[email,setEmail]=useState('');
-const[password,setPassword]=useState("");
+  // Define the hooks to help you capture different states
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { setToken, setUser } = useContext(AuthContext);
 
-// define tghe 3 hooks to capture the state of application
-const[loading,setLoading]=useState('');
-const[error,setError]=useState('')
+  // define tghe 3 hooks to capture the state of application
+  const [loading, setLoading] = useState("");
+  const [error, setError] = useState("");
 
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
-// define the url for the api end point
-const url = "https://kindergartenapi-uq4o.onrender.com/api/auth/login";
+  // define the url for the api end point
+  const url = "https://kindergartenapi-uq4o.onrender.com/api/auth/login";
 
-// define a function to handle the submit action 
-const handleSubmit = async (e) => {
+  // define a function to handle the submit action
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
-    setLoading("Logging in please wait")
+    setError("");
+    setLoading("Logging in please wait");
 
     try {
-        const data = {email,password}
+      const data = { email, password };
 
-        const res = await axios.post(url,data);
+      const res = await axios.post(url, data);
 
-        const{token,user}=res.data
+      const { token, user } = res.data;
 
-        // use local storage to store the details
-        localStorage.setItem('token',token);
-        localStorage.setItem('user',JSON.stringify(user))
-        // based on user role redirect a person to given role
-        if(user.role==='admin'){
-            navigate('/admin-dashboard')
-        }else if(user.role==='teacher'){
-            navigate("/teacher-dashboard");
+      // use local storage to store the details
+      localStorage.setItem("token", token);
+      localStorage.setItem("user", JSON.stringify(user));
 
-        }
-        else if(user.role==='parent'){
-            navigate("/parent-dashboard");
-        }else{
-            navigate("/")
-        }
-        
+      // update context immediately
+      setToken(token);
+      setUser(user);
+      // based on user role redirect a person to given role
+      if (user.role === "admin") {
+        navigate("/admin-dashboard");
+      } else if (user.role === "teacher") {
+        navigate("/teacher-dashboard");
+      } else if (user.role === "parent") {
+        navigate("/parent-dashboard");
+      } else {
+        navigate("/");
+      }
     } catch (error) {
-        setLoading("");
-        if(error.response && error.response.status === 401){
-            setError(error.response.data.message)
-        }else{
-            setError("Network or server error")
-        }
+      setLoading("");
+      if (error.response && error.response.status === 401) {
+        setError(error.response.data.message);
+      } else {
+        setError("Network or server error");
+      }
     }
-}
+  };
   return (
     <div className="container mt-5" style={{ maxWidth: "500px" }}>
       <form
@@ -68,7 +71,7 @@ const handleSubmit = async (e) => {
         <label>Email</label>
         <input
           type="email"
-          className="form control"
+          className="form-control"
           placeholder="Enter the Email"
           required
           onChange={(e) => setEmail(e.target.value)}
@@ -99,6 +102,6 @@ const handleSubmit = async (e) => {
       </form>
     </div>
   );
-}
+};
 
-export default LoginComponent
+export default LoginComponent;

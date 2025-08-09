@@ -34,10 +34,10 @@ const RegisterComponent = () => {
         setSuccess("Registration Successfully! Redirecting to Login Page")
 
         alert('Registration successfull')
-        navigate("/")
+        navigate("/login")
       } catch (error) {
         setLoading('');
-        setError("Registration Failed Please Try Again")
+        setError(error.response.data.message)
       }
       
     }
@@ -80,7 +80,7 @@ const RegisterComponent = () => {
         />
         {/* {password} */}
         <input
-          type="text"
+          type="password"
           placeholder="Enter the secret key"
           className="form-control mb-3"
           required

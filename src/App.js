@@ -31,7 +31,7 @@ function App() {
               </ProtectedRoute>
             }
           >
-            <Route path="/" element={<AdminDashboard />} />
+            <Route path="" element={<AdminDashboard />} />
           </Route>
           <Route path="/register" element={<RegisterComponent />} />
           <Route path="/notAuthorized" element={<NotAuthorized />} />

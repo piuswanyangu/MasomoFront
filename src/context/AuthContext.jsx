@@ -1,10 +1,10 @@
 import { jwtDecode } from 'jwt-decode';
-import React, { Children, createContext, useCallback, useEffect, useState } from 'react'
+import React, {  createContext, useCallback, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 const AuthContext = createContext();
 
-const AuthProvider = ({Children})=>{
+const AuthProvider = ({ children })=>{
     // create the navigate hook
     const navigate = useNavigate();
 
@@ -46,11 +46,11 @@ const AuthProvider = ({Children})=>{
     return(
         // The  setToken and setUser functions are needed fo login to alert the changes in state
         <AuthContext.Provider value={{token,user,logout,setToken,setUser}}>
-            {Children}
+            {children}
         </AuthContext.Provider>
 
     )
 }
 
 // export both auth context and auth provider
-export{AuthContext,AuthProvider}
+export {AuthContext,AuthProvider}

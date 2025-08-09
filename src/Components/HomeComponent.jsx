@@ -40,7 +40,9 @@ const HomeComponent = () => {
                 </a>
               </li>
               <li className="nav-item">
-              <Link to="/login" className='nav-link text-light'>Login</Link>
+                <Link to="/login" className="nav-link text-light">
+                  Login
+                </Link>
               </li>
             </ul>
           </div>
@@ -94,7 +96,7 @@ const HomeComponent = () => {
       <section className="py-5 ">
         <div className="container">
           <h2 className="text-success text-center">
-            Understand ing CBC in Kenya
+            Understanding CBC in Kenya
           </h2>
           <p>
             The competence based curriculumn(CBC) was introduced to replace the
@@ -105,7 +107,7 @@ const HomeComponent = () => {
           </p>
 
           <ul className="list-group list-group-flush mt-3">
-            <li className="list-group-item">Focus on talent and skills✔</li>
+            <li className="list-group-item">✔ Focus on talent and skills</li>
             <li className="list-group-item">✔ Continous assessment</li>
             <li className="list-group-item">✔ Real life problem solving</li>
             <li className="list-group-item">✔ Learner centered approach</li>
@@ -145,7 +147,7 @@ const HomeComponent = () => {
               </div>
             </div>
             <div className="col-md-4">
-              <div className="card shadow h-100 p-5">
+              <div className="card shadow h-100 p-2">
                 <div className="card-header text-center">
                   <h3>Co-curriculumn Activities</h3>
                 </div>
@@ -159,19 +161,20 @@ const HomeComponent = () => {
           </div>
         </div>
       </section>
-{/* Contact section */}
-      <section className='py-5 text-center'>
+      {/* Contact section */}
+      <section className="py-5 text-center">
         <div className="container">
-            <h2 className="text-success">
-                Join Masomo School Today</h2>
-                <p>Enroll your child in a school that builds future leading citizen</p>
-                <a href="#">Apply Now</a>
+          <h2 className="text-success">Join Masomo School Today</h2>
+          <p>
+            Enroll your child in a school that builds future leading citizen
+          </p>
+          <a href="#">Apply Now</a>
         </div>
       </section>
       {/* footer section */}
       <footer className="bg-dark text-white text-center py-3">
         <p className="mb-0">
-            &copy;{new Date().getFullYear()}Masomo School. All Rights Reserved
+          &copy;{new Date().getFullYear()}Masomo School. All Rights Reserved
         </p>
       </footer>
     </div>
