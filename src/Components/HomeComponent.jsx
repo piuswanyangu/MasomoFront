@@ -86,8 +86,8 @@ const HomeComponent = () => {
         <div className="container">
           <h1 className="text-success text-center">About Masomo School</h1>
           <p>
-            Masomo school is a leading isntitution dedicated to providing
-            quality education .We focus on holistiv development, creativity and
+            Masomo school is a leading institution dedicated to providing
+            quality education .We focus on holistic development, creativity and
             real-world skills for tomorrows leaders
           </p>
         </div>
@@ -117,7 +117,7 @@ const HomeComponent = () => {
       {/* Why us */}
       <section className="py-5 bg-light">
         <div className="container">
-          <h2 className="text-centerd  text-success">
+          <h2 className="text-center  text-success">
             Why Choose Masomo School?
           </h2>
           <div className="row">
