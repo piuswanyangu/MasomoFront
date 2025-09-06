@@ -15,13 +15,14 @@ const Sidebar = ()=>{
                 {/* The second navlink for the students */}
                 <li>
                     <NavLink to='/admin-dashboard/Students' className={({isActive})=> isActive? 'nav-link bg-success text-white fw-bold':'nav-link text-white'}>
-                    <i>Students</i>
+                    <i class="bi bi-people"></i>  Students
+                    
                     </NavLink>
                 </li>
                 {/* The third navlink for parent goes here */}
                 <li>
                     <NavLink to='/admin-dashboard/Parents' className={({isActive})=> isActive? 'nav-link bg-success text-white fw-bold':'nav-link text-white'}>
-                        <i>Parents</i>
+                        <i class="bi bi-person"></i> Parents
                     </NavLink>
                 </li>
                  {/* The fouth navlink for parent goes here */}
